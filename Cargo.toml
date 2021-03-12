@@ -1,0 +1,25 @@
+cargo-features = ["strip"]
+
+[package]
+name = "mso5k_dumpfb"
+version = "0.1.0"
+authors = ["Manuel Stocker <mensi@mensi.ch>"]
+edition = "2018"
+description = "Reader for the different framebuffer layers on the Rigol MSO5000 series scopes."
+readme = "README.md"
+homepage = "https://github.com/mensi/mso5k_dumpfb"
+repository = "https://github.com/mensi/mso5k_dumpfb"
+license = "Apache-2.0"
+
+[dependencies]
+libc = "0.2.88"
+memmap = "0.7.0"
+clap = "3.0.0-beta.2"
+simple-error = "0.2"
+png = "0.16.8"
+
+[profile.release]
+lto = true
+strip = "symbols"
+codegen-units = 1
+opt-level = "z"
